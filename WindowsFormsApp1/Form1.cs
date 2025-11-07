@@ -259,7 +259,7 @@ namespace WindowsFormsApp1
                 StateControls("StateButtonSaveData_Dis");
                 StateControls("StateButtonReset_Dis");
                 StateControls("StateTextBoxHeaderProtocolReceive_Dis");
-                HEADER = HeaderProtocolReceive.Text;
+                HEADER = TextBoxHeaderProtocolReceive.Text;
                 _timerRxData.Tick += new EventHandler(CommunicationTimer_Tick);
                 SyncGraphState(true);
 
@@ -463,8 +463,6 @@ namespace WindowsFormsApp1
         }
 
         
-
-        int rowIndex = 0;
         private void AddDataToGrid(byte byte1, byte byte2)
         {
             
@@ -615,11 +613,11 @@ namespace WindowsFormsApp1
             }
             if (state.Equals("StateTextBoxHeaderProtocolReceive_Enb"))
             {
-                HeaderProtocolReceive.Enabled = true;
+                TextBoxHeaderProtocolReceive.Enabled = true;
             }
             if (state.Equals("StateTextBoxHeaderProtocolReceive_Dis"))
             {
-                HeaderProtocolReceive.Enabled = false;
+                TextBoxHeaderProtocolReceive.Enabled = false;
             }
             if (state.Equals("StateGroupBoxReceive_Dis"))
             {
@@ -661,7 +659,7 @@ namespace WindowsFormsApp1
             {
                 this.BeginInvoke(new Action(() =>
                 {
-                    if (tabControl1.SelectedTab == tabPage2)
+                    if (tabControl1.SelectedTab == tabPage1)
                     {
                         // переносим данные в общий буфер в UI-потоке
                         if (_bufferIndex + chunk.Length > _receiveBuffer.Length)
@@ -946,59 +944,11 @@ namespace WindowsFormsApp1
             label_Heartbeat.Text = "0";
             label_ErrorsTitle.BackColor = SystemColors.Control;
             label_Heartbeat.BackColor = SystemColors.Control;
-            HeaderProtocolReceive.Text = "*D#";
+            TextBoxHeaderProtocolReceive.Text = "*D#";
           
         }
 
-        private void button_search_Click(object sender, EventArgs e)
-        {
-            FindComPorts();
-        }
-
-        private void button_OpenComPort_Click_1(object sender, EventArgs e)
-        {
-            OpenComPort();
-        }
-
-        private void button_CloseComPort_Click_1(object sender, EventArgs e)
-        {
-            CloseComPort();
-        }
-
-       
-       
-        private void button_reset_Click(object sender, EventArgs e)
-        {
-            if (_isRunningLogic)
-            {
-                return;
-            }
-            DialogResult result = MessageBox.Show("Все данные будут утеряны. Сбросить?", "Сброс", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
-
-            if (result == DialogResult.No)
-            {
-                return;
-            }
-            _isReceivingDataNow = false;
-            _isNewRxData = false;
-            _timePrdLife = 0;
-            _countTimeNoRxData = 0;
-            _cntLife = 0;
-            _cntErrRx = 0;
-            countPackages = 0;
-            _receiveBuffer = new byte[1024];
-            _bufferIndex = 0;
-        
-            _timePrdLife = 0;
-            rowIndex = 0;
-            _frame.Clear();
-            //_graph.Clear();
-            //_graph.Dispose();
-            StateControls("StateButtonSaveData_Dis");
-            StateControls("StateButtonReset_Dis");
-        }
-     
-
+      
         // Обработчик события закрытия формы
         private void FormClosingEventHandler(object sender, FormClosingEventArgs e)
         {
@@ -1028,85 +978,8 @@ namespace WindowsFormsApp1
             }
         }
 
-       
-        private void button3_Click_1(object sender, EventArgs e)
-        {
-            // Проверяем, не закрыта ли форма
-            if (_graphForm == null || _graphForm.IsDisposed)
-            {
-                _graphForm = new Form2(this);
-                _graphForm.FormClosed += (s, args) => _graphForm = null;
-            }
-            else
-            {
-                _graphForm.ReloadHistoricalData();
-            }
-            _graphForm.Show();
-            _graphForm.WindowState = FormWindowState.Normal; // Если форма была свернута
-            _graphForm.BringToFront(); // Помещаем окно на передний план
-        }
+      
 
-        private void radioButton1_CheckedChanged(object sender, EventArgs e)
-        {
-            _serialPort.DataBits = 5;
-        }
-
-        private void radioButton2_CheckedChanged(object sender, EventArgs e)
-        {
-            _serialPort.DataBits = 6;
-        }
-
-        private void radioButton3_CheckedChanged(object sender, EventArgs e)
-        {
-            _serialPort.DataBits = 7;
-        }
-
-        private void radioButton4_CheckedChanged(object sender, EventArgs e)
-        {
-            _serialPort.DataBits = 8;
-        }
-
-        private void radioButton13_CheckedChanged(object sender, EventArgs e)
-        {
-            _serialPort.StopBits = StopBits.One;
-        }
-
-        private void radioButton12_CheckedChanged(object sender, EventArgs e)
-        {
-            _serialPort.StopBits = StopBits.OnePointFive;
-        }
-
-        private void radioButton11_CheckedChanged(object sender, EventArgs e)
-        {
-            _serialPort.StopBits = StopBits.Two;
-        }
-
-        private void radioButton8_CheckedChanged(object sender, EventArgs e)
-        {
-            _serialPort.Parity = Parity.None;
-        }
-
-        private void radioButton7_CheckedChanged(object sender, EventArgs e)
-        {
-            _serialPort.Parity = Parity.Odd;
-        }
-
-        private void radioButton6_CheckedChanged(object sender, EventArgs e)
-        {
-            _serialPort.Parity = Parity.Even;
-        }
-
-        private void radioButton5_CheckedChanged(object sender, EventArgs e)
-        {
-            _serialPort.Parity = Parity.Mark;
-        }
-
-        private void radioButton9_CheckedChanged(object sender, EventArgs e)
-        {
-            _serialPort.Parity = Parity.Space;
-        }
-
- 
         private void tabControl1_Selecting(object sender, TabControlCancelEventArgs e)
         {
             if (e.TabPage == tabPage3 && _isRunningLogic)
@@ -1127,21 +1000,7 @@ namespace WindowsFormsApp1
             }
         }
 
-        private void button_start_Click(object sender, EventArgs e)
-        {
-            StartReadDate();
-        }
-
-        private void button_stop_Click(object sender, EventArgs e)
-        {
-            StopReadDate();
-        }
-
-        private void button_save_data_Click(object sender, EventArgs e)
-        {
-            ExportToCsv();
-        }
-
+      
         private void button_ClearGraph_Click(object sender, EventArgs e)
         {
             if (_isRunningLogic)
@@ -1165,7 +1024,7 @@ namespace WindowsFormsApp1
             _bufferIndex = 0;
             listView_DataReceive.Invalidate();
             _timePrdLife = 0;
-            rowIndex = 0;
+     
             _frame.Clear();
             //_graph.Clear();
             //_graph.Dispose();
@@ -1173,10 +1032,7 @@ namespace WindowsFormsApp1
             StateControls("StateButtonReset_Dis");
         }
 
-        private void button5_Click(object sender, EventArgs e)
-        {
-            ClearTerminalReceive();
-        }
+       
         private void ClearTerminalReceive()
         {
             if (tabControl1.SelectedTab == tabPage3)
@@ -1188,29 +1044,159 @@ namespace WindowsFormsApp1
             }
         }
 
-        private void button6_Click(object sender, EventArgs e)
-        {
-            listBox_Transmit.Items.Clear();
-        }
-
-        private void splitContainer1_Panel2_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void tableLayoutPanel3_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
+      
 
         private void button3_Click(object sender, EventArgs e)
         {
+            // Проверяем, не закрыта ли форма
+            if (_graphForm == null || _graphForm.IsDisposed)
+            {
+                _graphForm = new Form2(this);
+                _graphForm.FormClosed += (s, args) => _graphForm = null;
+            }
+            else
+            {
+                _graphForm.ReloadHistoricalData();
+            }
+            _graphForm.Show();
+            _graphForm.WindowState = FormWindowState.Normal; // Если форма была свернута
+            _graphForm.BringToFront(); // Помещаем окно на передний план
+        }
 
+        private void button_start_Click_1(object sender, EventArgs e)
+        {
+            StartReadDate();
+        }
+
+        private void button_Clear_Click(object sender, EventArgs e)
+        {
+            if (_isRunningLogic)
+            {
+                return;
+            }
+            DialogResult result = MessageBox.Show("Все данные будут утеряны. Сбросить?", "Сброс", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
+
+            if (result == DialogResult.No)
+            {
+                return;
+            }
+            _isReceivingDataNow = false;
+            _isNewRxData = false;
+            _timePrdLife = 0;
+            _countTimeNoRxData = 0;
+            _cntLife = 0;
+            _cntErrRx = 0;
+            countPackages = 0;
+            _receiveBuffer = new byte[1024];
+            _bufferIndex = 0;
+
+            _timePrdLife = 0;
+
+            _frame.Clear();
+            //_graph.Clear();
+            //_graph.Dispose();
+            StateControls("StateButtonSaveData_Dis");
+            StateControls("StateButtonReset_Dis");
+        }
+
+        private void button_stop_Click_1(object sender, EventArgs e)
+        {
+            StopReadDate();
+        }
+
+        private void button_save_data_Click_1(object sender, EventArgs e)
+        {
+            ExportToCsv();
+        }
+
+        private void button_OpenComPort_Click(object sender, EventArgs e)
+        {
+            OpenComPort();
+        }
+
+        private void button_CloseComPort_Click(object sender, EventArgs e)
+        {
+            CloseComPort();
+        }
+
+        private void button_search_Click_1(object sender, EventArgs e)
+        {
+            FindComPorts();
+        }
+
+        private void radioButton1_CheckedChanged_1(object sender, EventArgs e)
+        {
+            _serialPort.DataBits = 5;
+        }
+
+        private void radioButton2_CheckedChanged_1(object sender, EventArgs e)
+        {
+            _serialPort.DataBits = 6;
+        }
+
+        private void radioButton3_CheckedChanged_1(object sender, EventArgs e)
+        {
+            _serialPort.DataBits = 7;
+        }
+
+        private void radioButton4_CheckedChanged_1(object sender, EventArgs e)
+        {
+            _serialPort.DataBits = 8;
+        }
+
+        private void radioButton13_CheckedChanged_1(object sender, EventArgs e)
+        {
+            _serialPort.StopBits = StopBits.One;
+        }
+
+        private void radioButton12_CheckedChanged_1(object sender, EventArgs e)
+        {
+            _serialPort.StopBits = StopBits.OnePointFive;
+        }
+
+        private void radioButton11_CheckedChanged_1(object sender, EventArgs e)
+        {
+            _serialPort.StopBits = StopBits.Two;
+        }
+
+        private void radioButton8_CheckedChanged_1(object sender, EventArgs e)
+        {
+            _serialPort.Parity = Parity.None;
+        }
+
+        private void radioButton7_CheckedChanged_1(object sender, EventArgs e)
+        {
+            _serialPort.Parity = Parity.Odd;
+        }
+
+        private void radioButton6_CheckedChanged_1(object sender, EventArgs e)
+        {
+            _serialPort.Parity = Parity.Even;
+        }
+
+        private void radioButton5_CheckedChanged_1(object sender, EventArgs e)
+        {
+            _serialPort.Parity = Parity.Mark;
+        }
+
+        private void radioButton9_CheckedChanged_1(object sender, EventArgs e)
+        {
+            _serialPort.Parity = Parity.Space;
+        }
+
+        private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button5_Click_1(object sender, EventArgs e)
+        {
+            ClearTerminalReceive();
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            listBox_Transmit.Items.Clear();
         }
     }
 }
