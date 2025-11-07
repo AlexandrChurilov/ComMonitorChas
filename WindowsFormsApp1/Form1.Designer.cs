@@ -57,67 +57,67 @@
             this.button_OpenComPort = new System.Windows.Forms.Button();
             this.button_CloseComPort = new System.Windows.Forms.Button();
             this.button_search = new System.Windows.Forms.Button();
-            this.listBox_Log = new System.Windows.Forms.ListBox();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
+            this.groupBox11 = new System.Windows.Forms.GroupBox();
+            this.groupBox15 = new System.Windows.Forms.GroupBox();
+            this.numericUpDown3 = new System.Windows.Forms.NumericUpDown();
+            this.button2 = new System.Windows.Forms.Button();
+            this.groupBox14 = new System.Windows.Forms.GroupBox();
+            this.button9 = new System.Windows.Forms.Button();
+            this.button8 = new System.Windows.Forms.Button();
+            this.label13 = new System.Windows.Forms.Label();
+            this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
+            this.label12 = new System.Windows.Forms.Label();
+            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.trackBar1 = new System.Windows.Forms.TrackBar();
+            this.groupBox13 = new System.Windows.Forms.GroupBox();
+            this.radioButton14 = new System.Windows.Forms.RadioButton();
+            this.radioButton10 = new System.Windows.Forms.RadioButton();
+            this.label11 = new System.Windows.Forms.Label();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.button7 = new System.Windows.Forms.Button();
+            this.listBox3 = new System.Windows.Forms.ListBox();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
+            this.listView_DataReceive = new System.Windows.Forms.ListView();
             this.groupBox10 = new System.Windows.Forms.GroupBox();
             this.groupBoxReceive = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
-            this.label10 = new System.Windows.Forms.Label();
-            this.TextBoxHeaderProtocolReceive = new System.Windows.Forms.TextBox();
-            this.groupBox7 = new System.Windows.Forms.GroupBox();
-            this.button_save_data = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button_Clear = new System.Windows.Forms.Button();
-            this.button_stop = new System.Windows.Forms.Button();
-            this.button_start = new System.Windows.Forms.Button();
             this.groupBox16 = new System.Windows.Forms.GroupBox();
-            this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.listView_DataReceive = new System.Windows.Forms.ListView();
-            this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
-            this.listBox3 = new System.Windows.Forms.ListBox();
-            this.groupBox11 = new System.Windows.Forms.GroupBox();
-            this.button7 = new System.Windows.Forms.Button();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.groupBox13 = new System.Windows.Forms.GroupBox();
-            this.radioButton10 = new System.Windows.Forms.RadioButton();
-            this.radioButton14 = new System.Windows.Forms.RadioButton();
-            this.groupBox14 = new System.Windows.Forms.GroupBox();
-            this.trackBar1 = new System.Windows.Forms.TrackBar();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
-            this.label12 = new System.Windows.Forms.Label();
-            this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
-            this.label13 = new System.Windows.Forms.Label();
-            this.button8 = new System.Windows.Forms.Button();
-            this.button9 = new System.Windows.Forms.Button();
-            this.groupBox15 = new System.Windows.Forms.GroupBox();
-            this.button2 = new System.Windows.Forms.Button();
-            this.numericUpDown3 = new System.Windows.Forms.NumericUpDown();
+            this.label4 = new System.Windows.Forms.Label();
+            this.groupBox7 = new System.Windows.Forms.GroupBox();
+            this.button_start = new System.Windows.Forms.Button();
+            this.button_stop = new System.Windows.Forms.Button();
+            this.button_Clear = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button_save_data = new System.Windows.Forms.Button();
+            this.TextBoxHeaderProtocolReceive = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.groupBox9 = new System.Windows.Forms.GroupBox();
-            this.listBox_ASСII = new System.Windows.Forms.ListBox();
-            this.listBox_DEC = new System.Windows.Forms.ListBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.listBox_HEX = new System.Windows.Forms.ListBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.listBox_BIN = new System.Windows.Forms.ListBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.button5 = new System.Windows.Forms.Button();
-            this.label14 = new System.Windows.Forms.Label();
             this.groupBox8 = new System.Windows.Forms.GroupBox();
-            this.button4 = new System.Windows.Forms.Button();
-            this.textBox_TransmitData = new System.Windows.Forms.TextBox();
-            this.listBox_Transmit = new System.Windows.Forms.ListBox();
-            this.button6 = new System.Windows.Forms.Button();
             this.groupBox12 = new System.Windows.Forms.GroupBox();
-            this.radioButton_ASCII = new System.Windows.Forms.RadioButton();
-            this.radioButton_HEX = new System.Windows.Forms.RadioButton();
             this.radioButton_DEC = new System.Windows.Forms.RadioButton();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.radioButton_HEX = new System.Windows.Forms.RadioButton();
+            this.radioButton_ASCII = new System.Windows.Forms.RadioButton();
+            this.button6 = new System.Windows.Forms.Button();
+            this.listBox_Transmit = new System.Windows.Forms.ListBox();
+            this.textBox_TransmitData = new System.Windows.Forms.TextBox();
+            this.button4 = new System.Windows.Forms.Button();
+            this.groupBox9 = new System.Windows.Forms.GroupBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.button5 = new System.Windows.Forms.Button();
+            this.label9 = new System.Windows.Forms.Label();
+            this.listBox_BIN = new System.Windows.Forms.ListBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.listBox_HEX = new System.Windows.Forms.ListBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.listBox_DEC = new System.Windows.Forms.ListBox();
+            this.listBox_ASСII = new System.Windows.Forms.ListBox();
+            this.listBox_Log = new System.Windows.Forms.ListBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -125,28 +125,28 @@
             this.groupBox6.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
+            this.tableLayoutPanel4.SuspendLayout();
+            this.groupBox11.SuspendLayout();
+            this.groupBox15.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).BeginInit();
+            this.groupBox14.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
+            this.groupBox13.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
             this.groupBox10.SuspendLayout();
             this.groupBoxReceive.SuspendLayout();
             this.tableLayoutPanel6.SuspendLayout();
-            this.groupBox7.SuspendLayout();
             this.groupBox16.SuspendLayout();
-            this.tableLayoutPanel4.SuspendLayout();
-            this.groupBox11.SuspendLayout();
-            this.groupBox13.SuspendLayout();
-            this.groupBox14.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
-            this.groupBox15.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).BeginInit();
+            this.groupBox7.SuspendLayout();
             this.tabPage3.SuspendLayout();
-            this.groupBox9.SuspendLayout();
             this.groupBox8.SuspendLayout();
             this.groupBox12.SuspendLayout();
-            this.tabControl1.SuspendLayout();
+            this.groupBox9.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -483,14 +483,17 @@
             this.button_search.UseVisualStyleBackColor = true;
             this.button_search.Click += new System.EventHandler(this.button_search_Click_1);
             // 
-            // listBox_Log
+            // tabControl1
             // 
-            this.listBox_Log.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.listBox_Log.FormattingEnabled = true;
-            this.listBox_Log.Location = new System.Drawing.Point(3, 654);
-            this.listBox_Log.Name = "listBox_Log";
-            this.listBox_Log.Size = new System.Drawing.Size(1005, 103);
-            this.listBox_Log.TabIndex = 16;
+            this.tabControl1.Controls.Add(this.tabPage1);
+            this.tabControl1.Controls.Add(this.tabPage3);
+            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControl1.Location = new System.Drawing.Point(3, 124);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(1005, 524);
+            this.tabControl1.TabIndex = 18;
+            this.tabControl1.Selecting += new System.Windows.Forms.TabControlCancelEventHandler(this.tabControl1_Selecting);
             // 
             // tabPage1
             // 
@@ -518,6 +521,211 @@
             this.tableLayoutPanel3.Size = new System.Drawing.Size(997, 498);
             this.tableLayoutPanel3.TabIndex = 0;
             // 
+            // tableLayoutPanel4
+            // 
+            this.tableLayoutPanel4.ColumnCount = 1;
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel4.Controls.Add(this.groupBox11, 0, 0);
+            this.tableLayoutPanel4.Controls.Add(this.listBox3, 0, 1);
+            this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(501, 3);
+            this.tableLayoutPanel4.Name = "tableLayoutPanel4";
+            this.tableLayoutPanel4.RowCount = 2;
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 40.2439F));
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 59.7561F));
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(493, 492);
+            this.tableLayoutPanel4.TabIndex = 21;
+            // 
+            // groupBox11
+            // 
+            this.groupBox11.Controls.Add(this.groupBox15);
+            this.groupBox11.Controls.Add(this.groupBox14);
+            this.groupBox11.Controls.Add(this.groupBox13);
+            this.groupBox11.Controls.Add(this.label11);
+            this.groupBox11.Controls.Add(this.textBox4);
+            this.groupBox11.Controls.Add(this.button7);
+            this.groupBox11.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.groupBox11.Location = new System.Drawing.Point(3, 3);
+            this.groupBox11.Name = "groupBox11";
+            this.groupBox11.Size = new System.Drawing.Size(487, 191);
+            this.groupBox11.TabIndex = 25;
+            this.groupBox11.TabStop = false;
+            this.groupBox11.Text = "Transmit";
+            // 
+            // groupBox15
+            // 
+            this.groupBox15.Controls.Add(this.numericUpDown3);
+            this.groupBox15.Controls.Add(this.button2);
+            this.groupBox15.Location = new System.Drawing.Point(106, 19);
+            this.groupBox15.Name = "groupBox15";
+            this.groupBox15.Size = new System.Drawing.Size(307, 49);
+            this.groupBox15.TabIndex = 39;
+            this.groupBox15.TabStop = false;
+            this.groupBox15.Text = "Manual";
+            // 
+            // numericUpDown3
+            // 
+            this.numericUpDown3.Location = new System.Drawing.Point(6, 19);
+            this.numericUpDown3.Name = "numericUpDown3";
+            this.numericUpDown3.Size = new System.Drawing.Size(196, 20);
+            this.numericUpDown3.TabIndex = 32;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(204, 19);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(93, 21);
+            this.button2.TabIndex = 29;
+            this.button2.Text = "Send ->";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // groupBox14
+            // 
+            this.groupBox14.Controls.Add(this.button9);
+            this.groupBox14.Controls.Add(this.button8);
+            this.groupBox14.Controls.Add(this.label13);
+            this.groupBox14.Controls.Add(this.numericUpDown2);
+            this.groupBox14.Controls.Add(this.label12);
+            this.groupBox14.Controls.Add(this.numericUpDown1);
+            this.groupBox14.Controls.Add(this.trackBar1);
+            this.groupBox14.Enabled = false;
+            this.groupBox14.Location = new System.Drawing.Point(106, 66);
+            this.groupBox14.Name = "groupBox14";
+            this.groupBox14.Size = new System.Drawing.Size(307, 86);
+            this.groupBox14.TabIndex = 38;
+            this.groupBox14.TabStop = false;
+            this.groupBox14.Text = "Auto";
+            // 
+            // button9
+            // 
+            this.button9.Location = new System.Drawing.Point(205, 62);
+            this.button9.Name = "button9";
+            this.button9.Size = new System.Drawing.Size(93, 21);
+            this.button9.TabIndex = 29;
+            this.button9.Text = "Stop";
+            this.button9.UseVisualStyleBackColor = true;
+            // 
+            // button8
+            // 
+            this.button8.Location = new System.Drawing.Point(109, 62);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(93, 21);
+            this.button8.TabIndex = 35;
+            this.button8.Text = "Start";
+            this.button8.UseVisualStyleBackColor = true;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(1, 65);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(33, 13);
+            this.label13.TabIndex = 34;
+            this.label13.Text = "Timer";
+            // 
+            // numericUpDown2
+            // 
+            this.numericUpDown2.Location = new System.Drawing.Point(36, 62);
+            this.numericUpDown2.Name = "numericUpDown2";
+            this.numericUpDown2.Size = new System.Drawing.Size(69, 20);
+            this.numericUpDown2.TabIndex = 33;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(1, 24);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(30, 13);
+            this.label12.TabIndex = 32;
+            this.label12.Text = "Data";
+            // 
+            // numericUpDown1
+            // 
+            this.numericUpDown1.Location = new System.Drawing.Point(36, 22);
+            this.numericUpDown1.Name = "numericUpDown1";
+            this.numericUpDown1.Size = new System.Drawing.Size(73, 20);
+            this.numericUpDown1.TabIndex = 31;
+            // 
+            // trackBar1
+            // 
+            this.trackBar1.LargeChange = 10;
+            this.trackBar1.Location = new System.Drawing.Point(114, 21);
+            this.trackBar1.Maximum = 255;
+            this.trackBar1.Name = "trackBar1";
+            this.trackBar1.Size = new System.Drawing.Size(187, 45);
+            this.trackBar1.SmallChange = 10;
+            this.trackBar1.TabIndex = 30;
+            this.trackBar1.TickStyle = System.Windows.Forms.TickStyle.None;
+            // 
+            // groupBox13
+            // 
+            this.groupBox13.Controls.Add(this.radioButton14);
+            this.groupBox13.Controls.Add(this.radioButton10);
+            this.groupBox13.Location = new System.Drawing.Point(8, 66);
+            this.groupBox13.Name = "groupBox13";
+            this.groupBox13.Size = new System.Drawing.Size(93, 87);
+            this.groupBox13.TabIndex = 37;
+            this.groupBox13.TabStop = false;
+            this.groupBox13.Text = "Mode";
+            // 
+            // radioButton14
+            // 
+            this.radioButton14.AutoSize = true;
+            this.radioButton14.Location = new System.Drawing.Point(6, 53);
+            this.radioButton14.Name = "radioButton14";
+            this.radioButton14.Size = new System.Drawing.Size(47, 17);
+            this.radioButton14.TabIndex = 1;
+            this.radioButton14.Text = "Auto";
+            this.radioButton14.UseVisualStyleBackColor = true;
+            // 
+            // radioButton10
+            // 
+            this.radioButton10.AutoSize = true;
+            this.radioButton10.Checked = true;
+            this.radioButton10.Location = new System.Drawing.Point(7, 23);
+            this.radioButton10.Name = "radioButton10";
+            this.radioButton10.Size = new System.Drawing.Size(60, 17);
+            this.radioButton10.TabIndex = 0;
+            this.radioButton10.TabStop = true;
+            this.radioButton10.Text = "Manual";
+            this.radioButton10.UseVisualStyleBackColor = true;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(5, 19);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(84, 13);
+            this.label11.TabIndex = 36;
+            this.label11.Text = "Header Protocol";
+            // 
+            // textBox4
+            // 
+            this.textBox4.Location = new System.Drawing.Point(8, 39);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(93, 20);
+            this.textBox4.TabIndex = 35;
+            // 
+            // button7
+            // 
+            this.button7.Location = new System.Drawing.Point(320, 456);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(93, 21);
+            this.button7.TabIndex = 34;
+            this.button7.Text = "Clear";
+            this.button7.UseVisualStyleBackColor = true;
+            // 
+            // listBox3
+            // 
+            this.listBox3.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.listBox3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.listBox3.FormattingEnabled = true;
+            this.listBox3.Location = new System.Drawing.Point(3, 200);
+            this.listBox3.Name = "listBox3";
+            this.listBox3.Size = new System.Drawing.Size(487, 289);
+            this.listBox3.TabIndex = 23;
+            // 
             // tableLayoutPanel5
             // 
             this.tableLayoutPanel5.ColumnCount = 1;
@@ -533,6 +741,18 @@
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 59.7561F));
             this.tableLayoutPanel5.Size = new System.Drawing.Size(492, 492);
             this.tableLayoutPanel5.TabIndex = 22;
+            // 
+            // listView_DataReceive
+            // 
+            this.listView_DataReceive.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.listView_DataReceive.FullRowSelect = true;
+            this.listView_DataReceive.GridLines = true;
+            this.listView_DataReceive.HideSelection = false;
+            this.listView_DataReceive.Location = new System.Drawing.Point(3, 200);
+            this.listView_DataReceive.Name = "listView_DataReceive";
+            this.listView_DataReceive.Size = new System.Drawing.Size(486, 289);
+            this.listView_DataReceive.TabIndex = 22;
+            this.listView_DataReceive.UseCompatibleStateImageBehavior = false;
             // 
             // groupBox10
             // 
@@ -577,23 +797,35 @@
             this.tableLayoutPanel6.Size = new System.Drawing.Size(474, 151);
             this.tableLayoutPanel6.TabIndex = 17;
             // 
-            // label10
+            // groupBox16
             // 
-            this.label10.AutoSize = true;
-            this.label10.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label10.Location = new System.Drawing.Point(3, 0);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(468, 13);
-            this.label10.TabIndex = 16;
-            this.label10.Text = "Header Protocol";
+            this.groupBox16.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.groupBox16.Controls.Add(this.label5);
+            this.groupBox16.Controls.Add(this.label4);
+            this.groupBox16.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox16.Location = new System.Drawing.Point(3, 115);
+            this.groupBox16.Name = "groupBox16";
+            this.groupBox16.Size = new System.Drawing.Size(468, 33);
+            this.groupBox16.TabIndex = 19;
+            this.groupBox16.TabStop = false;
             // 
-            // TextBoxHeaderProtocolReceive
+            // label5
             // 
-            this.TextBoxHeaderProtocolReceive.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.TextBoxHeaderProtocolReceive.Location = new System.Drawing.Point(3, 21);
-            this.TextBoxHeaderProtocolReceive.Name = "TextBoxHeaderProtocolReceive";
-            this.TextBoxHeaderProtocolReceive.Size = new System.Drawing.Size(468, 20);
-            this.TextBoxHeaderProtocolReceive.TabIndex = 15;
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(6, 13);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(35, 13);
+            this.label5.TabIndex = 13;
+            this.label5.Text = "label1";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(70, 13);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(35, 13);
+            this.label4.TabIndex = 14;
+            this.label4.Text = "label1";
             // 
             // groupBox7
             // 
@@ -609,36 +841,15 @@
             this.groupBox7.TabIndex = 17;
             this.groupBox7.TabStop = false;
             // 
-            // button_save_data
+            // button_start
             // 
-            this.button_save_data.Enabled = false;
-            this.button_save_data.Location = new System.Drawing.Point(105, 36);
-            this.button_save_data.Name = "button_save_data";
-            this.button_save_data.Size = new System.Drawing.Size(93, 23);
-            this.button_save_data.TabIndex = 14;
-            this.button_save_data.Text = "Save CSV";
-            this.button_save_data.UseVisualStyleBackColor = true;
-            this.button_save_data.Click += new System.EventHandler(this.button_save_data_Click_1);
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(311, 14);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(93, 23);
-            this.button3.TabIndex = 13;
-            this.button3.Text = "Graph Rx";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
-            // button_Clear
-            // 
-            this.button_Clear.Location = new System.Drawing.Point(105, 9);
-            this.button_Clear.Name = "button_Clear";
-            this.button_Clear.Size = new System.Drawing.Size(93, 23);
-            this.button_Clear.TabIndex = 9;
-            this.button_Clear.Text = "Clear";
-            this.button_Clear.UseVisualStyleBackColor = true;
-            this.button_Clear.Click += new System.EventHandler(this.button_Clear_Click);
+            this.button_start.Location = new System.Drawing.Point(6, 9);
+            this.button_start.Name = "button_start";
+            this.button_start.Size = new System.Drawing.Size(93, 23);
+            this.button_start.TabIndex = 0;
+            this.button_start.Text = "Start";
+            this.button_start.UseVisualStyleBackColor = true;
+            this.button_start.Click += new System.EventHandler(this.button_start_Click_1);
             // 
             // button_stop
             // 
@@ -650,262 +861,54 @@
             this.button_stop.UseVisualStyleBackColor = true;
             this.button_stop.Click += new System.EventHandler(this.button_stop_Click_1);
             // 
-            // button_start
+            // button_Clear
             // 
-            this.button_start.Location = new System.Drawing.Point(6, 9);
-            this.button_start.Name = "button_start";
-            this.button_start.Size = new System.Drawing.Size(93, 23);
-            this.button_start.TabIndex = 0;
-            this.button_start.Text = "Start";
-            this.button_start.UseVisualStyleBackColor = true;
-            this.button_start.Click += new System.EventHandler(this.button_start_Click_1);
+            this.button_Clear.Location = new System.Drawing.Point(105, 9);
+            this.button_Clear.Name = "button_Clear";
+            this.button_Clear.Size = new System.Drawing.Size(93, 23);
+            this.button_Clear.TabIndex = 9;
+            this.button_Clear.Text = "Clear";
+            this.button_Clear.UseVisualStyleBackColor = true;
+            this.button_Clear.Click += new System.EventHandler(this.button_Clear_Click);
             // 
-            // groupBox16
+            // button3
             // 
-            this.groupBox16.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.groupBox16.Controls.Add(this.label5);
-            this.groupBox16.Controls.Add(this.label4);
-            this.groupBox16.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox16.Location = new System.Drawing.Point(3, 115);
-            this.groupBox16.Name = "groupBox16";
-            this.groupBox16.Size = new System.Drawing.Size(468, 33);
-            this.groupBox16.TabIndex = 19;
-            this.groupBox16.TabStop = false;
+            this.button3.Location = new System.Drawing.Point(311, 14);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(93, 23);
+            this.button3.TabIndex = 13;
+            this.button3.Text = "Graph Rx";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
-            // label4
+            // button_save_data
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(70, 13);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(35, 13);
-            this.label4.TabIndex = 14;
-            this.label4.Text = "label1";
+            this.button_save_data.Enabled = false;
+            this.button_save_data.Location = new System.Drawing.Point(105, 36);
+            this.button_save_data.Name = "button_save_data";
+            this.button_save_data.Size = new System.Drawing.Size(93, 23);
+            this.button_save_data.TabIndex = 14;
+            this.button_save_data.Text = "Save CSV";
+            this.button_save_data.UseVisualStyleBackColor = true;
+            this.button_save_data.Click += new System.EventHandler(this.button_save_data_Click_1);
             // 
-            // label5
+            // TextBoxHeaderProtocolReceive
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(6, 13);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(35, 13);
-            this.label5.TabIndex = 13;
-            this.label5.Text = "label1";
+            this.TextBoxHeaderProtocolReceive.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.TextBoxHeaderProtocolReceive.Location = new System.Drawing.Point(3, 21);
+            this.TextBoxHeaderProtocolReceive.Name = "TextBoxHeaderProtocolReceive";
+            this.TextBoxHeaderProtocolReceive.Size = new System.Drawing.Size(468, 20);
+            this.TextBoxHeaderProtocolReceive.TabIndex = 15;
             // 
-            // listView_DataReceive
+            // label10
             // 
-            this.listView_DataReceive.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.listView_DataReceive.FullRowSelect = true;
-            this.listView_DataReceive.GridLines = true;
-            this.listView_DataReceive.HideSelection = false;
-            this.listView_DataReceive.Location = new System.Drawing.Point(3, 200);
-            this.listView_DataReceive.Name = "listView_DataReceive";
-            this.listView_DataReceive.Size = new System.Drawing.Size(486, 289);
-            this.listView_DataReceive.TabIndex = 22;
-            this.listView_DataReceive.UseCompatibleStateImageBehavior = false;
-            // 
-            // tableLayoutPanel4
-            // 
-            this.tableLayoutPanel4.ColumnCount = 1;
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel4.Controls.Add(this.groupBox11, 0, 0);
-            this.tableLayoutPanel4.Controls.Add(this.listBox3, 0, 1);
-            this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel4.Location = new System.Drawing.Point(501, 3);
-            this.tableLayoutPanel4.Name = "tableLayoutPanel4";
-            this.tableLayoutPanel4.RowCount = 2;
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 40.2439F));
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 59.7561F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(493, 492);
-            this.tableLayoutPanel4.TabIndex = 21;
-            // 
-            // listBox3
-            // 
-            this.listBox3.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.listBox3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.listBox3.FormattingEnabled = true;
-            this.listBox3.Location = new System.Drawing.Point(3, 200);
-            this.listBox3.Name = "listBox3";
-            this.listBox3.Size = new System.Drawing.Size(487, 289);
-            this.listBox3.TabIndex = 23;
-            // 
-            // groupBox11
-            // 
-            this.groupBox11.Controls.Add(this.groupBox15);
-            this.groupBox11.Controls.Add(this.groupBox14);
-            this.groupBox11.Controls.Add(this.groupBox13);
-            this.groupBox11.Controls.Add(this.label11);
-            this.groupBox11.Controls.Add(this.textBox4);
-            this.groupBox11.Controls.Add(this.button7);
-            this.groupBox11.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.groupBox11.Location = new System.Drawing.Point(3, 3);
-            this.groupBox11.Name = "groupBox11";
-            this.groupBox11.Size = new System.Drawing.Size(487, 191);
-            this.groupBox11.TabIndex = 25;
-            this.groupBox11.TabStop = false;
-            this.groupBox11.Text = "Transmit";
-            // 
-            // button7
-            // 
-            this.button7.Location = new System.Drawing.Point(320, 456);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(93, 21);
-            this.button7.TabIndex = 34;
-            this.button7.Text = "Clear";
-            this.button7.UseVisualStyleBackColor = true;
-            // 
-            // textBox4
-            // 
-            this.textBox4.Location = new System.Drawing.Point(8, 39);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(93, 20);
-            this.textBox4.TabIndex = 35;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(5, 19);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(84, 13);
-            this.label11.TabIndex = 36;
-            this.label11.Text = "Header Protocol";
-            // 
-            // groupBox13
-            // 
-            this.groupBox13.Controls.Add(this.radioButton14);
-            this.groupBox13.Controls.Add(this.radioButton10);
-            this.groupBox13.Location = new System.Drawing.Point(8, 66);
-            this.groupBox13.Name = "groupBox13";
-            this.groupBox13.Size = new System.Drawing.Size(93, 87);
-            this.groupBox13.TabIndex = 37;
-            this.groupBox13.TabStop = false;
-            this.groupBox13.Text = "Mode";
-            // 
-            // radioButton10
-            // 
-            this.radioButton10.AutoSize = true;
-            this.radioButton10.Checked = true;
-            this.radioButton10.Location = new System.Drawing.Point(7, 23);
-            this.radioButton10.Name = "radioButton10";
-            this.radioButton10.Size = new System.Drawing.Size(60, 17);
-            this.radioButton10.TabIndex = 0;
-            this.radioButton10.TabStop = true;
-            this.radioButton10.Text = "Manual";
-            this.radioButton10.UseVisualStyleBackColor = true;
-            // 
-            // radioButton14
-            // 
-            this.radioButton14.AutoSize = true;
-            this.radioButton14.Location = new System.Drawing.Point(6, 53);
-            this.radioButton14.Name = "radioButton14";
-            this.radioButton14.Size = new System.Drawing.Size(47, 17);
-            this.radioButton14.TabIndex = 1;
-            this.radioButton14.Text = "Auto";
-            this.radioButton14.UseVisualStyleBackColor = true;
-            // 
-            // groupBox14
-            // 
-            this.groupBox14.Controls.Add(this.button9);
-            this.groupBox14.Controls.Add(this.button8);
-            this.groupBox14.Controls.Add(this.label13);
-            this.groupBox14.Controls.Add(this.numericUpDown2);
-            this.groupBox14.Controls.Add(this.label12);
-            this.groupBox14.Controls.Add(this.numericUpDown1);
-            this.groupBox14.Controls.Add(this.trackBar1);
-            this.groupBox14.Enabled = false;
-            this.groupBox14.Location = new System.Drawing.Point(106, 66);
-            this.groupBox14.Name = "groupBox14";
-            this.groupBox14.Size = new System.Drawing.Size(307, 86);
-            this.groupBox14.TabIndex = 38;
-            this.groupBox14.TabStop = false;
-            this.groupBox14.Text = "Auto";
-            // 
-            // trackBar1
-            // 
-            this.trackBar1.LargeChange = 10;
-            this.trackBar1.Location = new System.Drawing.Point(114, 21);
-            this.trackBar1.Maximum = 255;
-            this.trackBar1.Name = "trackBar1";
-            this.trackBar1.Size = new System.Drawing.Size(187, 45);
-            this.trackBar1.SmallChange = 10;
-            this.trackBar1.TabIndex = 30;
-            this.trackBar1.TickStyle = System.Windows.Forms.TickStyle.None;
-            // 
-            // numericUpDown1
-            // 
-            this.numericUpDown1.Location = new System.Drawing.Point(36, 22);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(73, 20);
-            this.numericUpDown1.TabIndex = 31;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(1, 24);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(30, 13);
-            this.label12.TabIndex = 32;
-            this.label12.Text = "Data";
-            // 
-            // numericUpDown2
-            // 
-            this.numericUpDown2.Location = new System.Drawing.Point(36, 62);
-            this.numericUpDown2.Name = "numericUpDown2";
-            this.numericUpDown2.Size = new System.Drawing.Size(69, 20);
-            this.numericUpDown2.TabIndex = 33;
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(1, 65);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(33, 13);
-            this.label13.TabIndex = 34;
-            this.label13.Text = "Timer";
-            // 
-            // button8
-            // 
-            this.button8.Location = new System.Drawing.Point(109, 62);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(93, 21);
-            this.button8.TabIndex = 35;
-            this.button8.Text = "Start";
-            this.button8.UseVisualStyleBackColor = true;
-            // 
-            // button9
-            // 
-            this.button9.Location = new System.Drawing.Point(205, 62);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(93, 21);
-            this.button9.TabIndex = 29;
-            this.button9.Text = "Stop";
-            this.button9.UseVisualStyleBackColor = true;
-            // 
-            // groupBox15
-            // 
-            this.groupBox15.Controls.Add(this.numericUpDown3);
-            this.groupBox15.Controls.Add(this.button2);
-            this.groupBox15.Location = new System.Drawing.Point(106, 19);
-            this.groupBox15.Name = "groupBox15";
-            this.groupBox15.Size = new System.Drawing.Size(307, 49);
-            this.groupBox15.TabIndex = 39;
-            this.groupBox15.TabStop = false;
-            this.groupBox15.Text = "Manual";
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(204, 19);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(93, 21);
-            this.button2.TabIndex = 29;
-            this.button2.Text = "Send ->";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // numericUpDown3
-            // 
-            this.numericUpDown3.Location = new System.Drawing.Point(6, 19);
-            this.numericUpDown3.Name = "numericUpDown3";
-            this.numericUpDown3.Size = new System.Drawing.Size(196, 20);
-            this.numericUpDown3.TabIndex = 32;
+            this.label10.AutoSize = true;
+            this.label10.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label10.Location = new System.Drawing.Point(3, 0);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(468, 13);
+            this.label10.TabIndex = 16;
+            this.label10.Text = "Header Protocol";
             // 
             // tabPage3
             // 
@@ -918,6 +921,99 @@
             this.tabPage3.Size = new System.Drawing.Size(997, 498);
             this.tabPage3.TabIndex = 1;
             this.tabPage3.Text = "Terminal            ";
+            // 
+            // groupBox8
+            // 
+            this.groupBox8.Controls.Add(this.groupBox12);
+            this.groupBox8.Controls.Add(this.button6);
+            this.groupBox8.Controls.Add(this.listBox_Transmit);
+            this.groupBox8.Controls.Add(this.textBox_TransmitData);
+            this.groupBox8.Controls.Add(this.button4);
+            this.groupBox8.Location = new System.Drawing.Point(3, 390);
+            this.groupBox8.Name = "groupBox8";
+            this.groupBox8.Size = new System.Drawing.Size(976, 110);
+            this.groupBox8.TabIndex = 26;
+            this.groupBox8.TabStop = false;
+            this.groupBox8.Text = "Transmit";
+            // 
+            // groupBox12
+            // 
+            this.groupBox12.Controls.Add(this.radioButton_DEC);
+            this.groupBox12.Controls.Add(this.radioButton_HEX);
+            this.groupBox12.Controls.Add(this.radioButton_ASCII);
+            this.groupBox12.Location = new System.Drawing.Point(3, 14);
+            this.groupBox12.Name = "groupBox12";
+            this.groupBox12.Size = new System.Drawing.Size(181, 26);
+            this.groupBox12.TabIndex = 34;
+            this.groupBox12.TabStop = false;
+            // 
+            // radioButton_DEC
+            // 
+            this.radioButton_DEC.AutoSize = true;
+            this.radioButton_DEC.Location = new System.Drawing.Point(121, 7);
+            this.radioButton_DEC.Name = "radioButton_DEC";
+            this.radioButton_DEC.Size = new System.Drawing.Size(47, 17);
+            this.radioButton_DEC.TabIndex = 2;
+            this.radioButton_DEC.Text = "DEC";
+            this.radioButton_DEC.UseVisualStyleBackColor = true;
+            // 
+            // radioButton_HEX
+            // 
+            this.radioButton_HEX.AutoSize = true;
+            this.radioButton_HEX.Location = new System.Drawing.Point(61, 7);
+            this.radioButton_HEX.Name = "radioButton_HEX";
+            this.radioButton_HEX.Size = new System.Drawing.Size(47, 17);
+            this.radioButton_HEX.TabIndex = 1;
+            this.radioButton_HEX.Text = "HEX";
+            this.radioButton_HEX.UseVisualStyleBackColor = true;
+            // 
+            // radioButton_ASCII
+            // 
+            this.radioButton_ASCII.AutoSize = true;
+            this.radioButton_ASCII.Checked = true;
+            this.radioButton_ASCII.Location = new System.Drawing.Point(1, 7);
+            this.radioButton_ASCII.Name = "radioButton_ASCII";
+            this.radioButton_ASCII.Size = new System.Drawing.Size(52, 17);
+            this.radioButton_ASCII.TabIndex = 0;
+            this.radioButton_ASCII.TabStop = true;
+            this.radioButton_ASCII.Text = "ASCII";
+            this.radioButton_ASCII.UseVisualStyleBackColor = true;
+            // 
+            // button6
+            // 
+            this.button6.Location = new System.Drawing.Point(858, 46);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(93, 21);
+            this.button6.TabIndex = 33;
+            this.button6.Text = "Clear";
+            this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
+            // 
+            // listBox_Transmit
+            // 
+            this.listBox_Transmit.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.listBox_Transmit.FormattingEnabled = true;
+            this.listBox_Transmit.Location = new System.Drawing.Point(3, 72);
+            this.listBox_Transmit.Name = "listBox_Transmit";
+            this.listBox_Transmit.Size = new System.Drawing.Size(963, 30);
+            this.listBox_Transmit.TabIndex = 2;
+            // 
+            // textBox_TransmitData
+            // 
+            this.textBox_TransmitData.Location = new System.Drawing.Point(3, 46);
+            this.textBox_TransmitData.Name = "textBox_TransmitData";
+            this.textBox_TransmitData.Size = new System.Drawing.Size(750, 20);
+            this.textBox_TransmitData.TabIndex = 1;
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(759, 46);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(93, 21);
+            this.button4.TabIndex = 0;
+            this.button4.Text = "Send ->";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // groupBox9
             // 
@@ -938,73 +1034,14 @@
             this.groupBox9.TabStop = false;
             this.groupBox9.Text = "Receive";
             // 
-            // listBox_ASСII
+            // label14
             // 
-            this.listBox_ASСII.FormattingEnabled = true;
-            this.listBox_ASСII.Location = new System.Drawing.Point(14, 25);
-            this.listBox_ASСII.Name = "listBox_ASСII";
-            this.listBox_ASСII.Size = new System.Drawing.Size(230, 329);
-            this.listBox_ASСII.TabIndex = 24;
-            // 
-            // listBox_DEC
-            // 
-            this.listBox_DEC.FormattingEnabled = true;
-            this.listBox_DEC.Location = new System.Drawing.Point(250, 25);
-            this.listBox_DEC.Name = "listBox_DEC";
-            this.listBox_DEC.Size = new System.Drawing.Size(230, 329);
-            this.listBox_DEC.TabIndex = 25;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(207, 10);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(34, 13);
-            this.label8.TabIndex = 26;
-            this.label8.Text = "ASСII";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(448, 10);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(29, 13);
-            this.label7.TabIndex = 27;
-            this.label7.Text = "DEC";
-            // 
-            // listBox_HEX
-            // 
-            this.listBox_HEX.FormattingEnabled = true;
-            this.listBox_HEX.Location = new System.Drawing.Point(486, 25);
-            this.listBox_HEX.Name = "listBox_HEX";
-            this.listBox_HEX.Size = new System.Drawing.Size(230, 329);
-            this.listBox_HEX.TabIndex = 28;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(684, 10);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(29, 13);
-            this.label6.TabIndex = 29;
-            this.label6.Text = "HEX";
-            // 
-            // listBox_BIN
-            // 
-            this.listBox_BIN.FormattingEnabled = true;
-            this.listBox_BIN.Location = new System.Drawing.Point(722, 25);
-            this.listBox_BIN.Name = "listBox_BIN";
-            this.listBox_BIN.Size = new System.Drawing.Size(230, 329);
-            this.listBox_BIN.TabIndex = 30;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(992, 10);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(25, 13);
-            this.label9.TabIndex = 31;
-            this.label9.Text = "BIN";
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(923, 10);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(25, 13);
+            this.label14.TabIndex = 33;
+            this.label14.Text = "BIN";
             // 
             // button5
             // 
@@ -1016,119 +1053,82 @@
             this.button5.UseVisualStyleBackColor = true;
             this.button5.Click += new System.EventHandler(this.button5_Click_1);
             // 
-            // label14
+            // label9
             // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(923, 10);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(25, 13);
-            this.label14.TabIndex = 33;
-            this.label14.Text = "BIN";
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(992, 10);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(25, 13);
+            this.label9.TabIndex = 31;
+            this.label9.Text = "BIN";
             // 
-            // groupBox8
+            // listBox_BIN
             // 
-            this.groupBox8.Controls.Add(this.groupBox12);
-            this.groupBox8.Controls.Add(this.button6);
-            this.groupBox8.Controls.Add(this.listBox_Transmit);
-            this.groupBox8.Controls.Add(this.textBox_TransmitData);
-            this.groupBox8.Controls.Add(this.button4);
-            this.groupBox8.Location = new System.Drawing.Point(3, 390);
-            this.groupBox8.Name = "groupBox8";
-            this.groupBox8.Size = new System.Drawing.Size(976, 110);
-            this.groupBox8.TabIndex = 26;
-            this.groupBox8.TabStop = false;
-            this.groupBox8.Text = "Transmit";
+            this.listBox_BIN.FormattingEnabled = true;
+            this.listBox_BIN.Location = new System.Drawing.Point(722, 25);
+            this.listBox_BIN.Name = "listBox_BIN";
+            this.listBox_BIN.Size = new System.Drawing.Size(230, 329);
+            this.listBox_BIN.TabIndex = 30;
             // 
-            // button4
+            // label6
             // 
-            this.button4.Location = new System.Drawing.Point(759, 46);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(93, 21);
-            this.button4.TabIndex = 0;
-            this.button4.Text = "Send ->";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(684, 10);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(29, 13);
+            this.label6.TabIndex = 29;
+            this.label6.Text = "HEX";
             // 
-            // textBox_TransmitData
+            // listBox_HEX
             // 
-            this.textBox_TransmitData.Location = new System.Drawing.Point(3, 46);
-            this.textBox_TransmitData.Name = "textBox_TransmitData";
-            this.textBox_TransmitData.Size = new System.Drawing.Size(750, 20);
-            this.textBox_TransmitData.TabIndex = 1;
+            this.listBox_HEX.FormattingEnabled = true;
+            this.listBox_HEX.Location = new System.Drawing.Point(486, 25);
+            this.listBox_HEX.Name = "listBox_HEX";
+            this.listBox_HEX.Size = new System.Drawing.Size(230, 329);
+            this.listBox_HEX.TabIndex = 28;
             // 
-            // listBox_Transmit
+            // label7
             // 
-            this.listBox_Transmit.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.listBox_Transmit.FormattingEnabled = true;
-            this.listBox_Transmit.Location = new System.Drawing.Point(3, 72);
-            this.listBox_Transmit.Name = "listBox_Transmit";
-            this.listBox_Transmit.Size = new System.Drawing.Size(963, 30);
-            this.listBox_Transmit.TabIndex = 2;
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(448, 10);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(29, 13);
+            this.label7.TabIndex = 27;
+            this.label7.Text = "DEC";
             // 
-            // button6
+            // label8
             // 
-            this.button6.Location = new System.Drawing.Point(858, 46);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(93, 21);
-            this.button6.TabIndex = 33;
-            this.button6.Text = "Clear";
-            this.button6.UseVisualStyleBackColor = true;
-            this.button6.Click += new System.EventHandler(this.button6_Click);
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(207, 10);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(34, 13);
+            this.label8.TabIndex = 26;
+            this.label8.Text = "ASСII";
             // 
-            // groupBox12
+            // listBox_DEC
             // 
-            this.groupBox12.Controls.Add(this.radioButton_DEC);
-            this.groupBox12.Controls.Add(this.radioButton_HEX);
-            this.groupBox12.Controls.Add(this.radioButton_ASCII);
-            this.groupBox12.Location = new System.Drawing.Point(3, 14);
-            this.groupBox12.Name = "groupBox12";
-            this.groupBox12.Size = new System.Drawing.Size(181, 26);
-            this.groupBox12.TabIndex = 34;
-            this.groupBox12.TabStop = false;
+            this.listBox_DEC.FormattingEnabled = true;
+            this.listBox_DEC.Location = new System.Drawing.Point(250, 25);
+            this.listBox_DEC.Name = "listBox_DEC";
+            this.listBox_DEC.Size = new System.Drawing.Size(230, 329);
+            this.listBox_DEC.TabIndex = 25;
             // 
-            // radioButton_ASCII
+            // listBox_ASСII
             // 
-            this.radioButton_ASCII.AutoSize = true;
-            this.radioButton_ASCII.Checked = true;
-            this.radioButton_ASCII.Location = new System.Drawing.Point(1, 7);
-            this.radioButton_ASCII.Name = "radioButton_ASCII";
-            this.radioButton_ASCII.Size = new System.Drawing.Size(52, 17);
-            this.radioButton_ASCII.TabIndex = 0;
-            this.radioButton_ASCII.TabStop = true;
-            this.radioButton_ASCII.Text = "ASCII";
-            this.radioButton_ASCII.UseVisualStyleBackColor = true;
+            this.listBox_ASСII.FormattingEnabled = true;
+            this.listBox_ASСII.Location = new System.Drawing.Point(14, 25);
+            this.listBox_ASСII.Name = "listBox_ASСII";
+            this.listBox_ASСII.Size = new System.Drawing.Size(230, 329);
+            this.listBox_ASСII.TabIndex = 24;
             // 
-            // radioButton_HEX
+            // listBox_Log
             // 
-            this.radioButton_HEX.AutoSize = true;
-            this.radioButton_HEX.Location = new System.Drawing.Point(61, 7);
-            this.radioButton_HEX.Name = "radioButton_HEX";
-            this.radioButton_HEX.Size = new System.Drawing.Size(47, 17);
-            this.radioButton_HEX.TabIndex = 1;
-            this.radioButton_HEX.Text = "HEX";
-            this.radioButton_HEX.UseVisualStyleBackColor = true;
-            // 
-            // radioButton_DEC
-            // 
-            this.radioButton_DEC.AutoSize = true;
-            this.radioButton_DEC.Location = new System.Drawing.Point(121, 7);
-            this.radioButton_DEC.Name = "radioButton_DEC";
-            this.radioButton_DEC.Size = new System.Drawing.Size(47, 17);
-            this.radioButton_DEC.TabIndex = 2;
-            this.radioButton_DEC.Text = "DEC";
-            this.radioButton_DEC.UseVisualStyleBackColor = true;
-            // 
-            // tabControl1
-            // 
-            this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage3);
-            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControl1.Location = new System.Drawing.Point(3, 124);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1005, 524);
-            this.tabControl1.TabIndex = 18;
-            this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
+            this.listBox_Log.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.listBox_Log.FormattingEnabled = true;
+            this.listBox_Log.Location = new System.Drawing.Point(3, 654);
+            this.listBox_Log.Name = "listBox_Log";
+            this.listBox_Log.Size = new System.Drawing.Size(1005, 103);
+            this.listBox_Log.TabIndex = 16;
             // 
             // Form1
             // 
@@ -1151,36 +1151,36 @@
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             this.groupBox2.ResumeLayout(false);
+            this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
+            this.tableLayoutPanel4.ResumeLayout(false);
+            this.groupBox11.ResumeLayout(false);
+            this.groupBox11.PerformLayout();
+            this.groupBox15.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).EndInit();
+            this.groupBox14.ResumeLayout(false);
+            this.groupBox14.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
+            this.groupBox13.ResumeLayout(false);
+            this.groupBox13.PerformLayout();
             this.tableLayoutPanel5.ResumeLayout(false);
             this.groupBox10.ResumeLayout(false);
             this.groupBoxReceive.ResumeLayout(false);
             this.tableLayoutPanel6.ResumeLayout(false);
             this.tableLayoutPanel6.PerformLayout();
-            this.groupBox7.ResumeLayout(false);
             this.groupBox16.ResumeLayout(false);
             this.groupBox16.PerformLayout();
-            this.tableLayoutPanel4.ResumeLayout(false);
-            this.groupBox11.ResumeLayout(false);
-            this.groupBox11.PerformLayout();
-            this.groupBox13.ResumeLayout(false);
-            this.groupBox13.PerformLayout();
-            this.groupBox14.ResumeLayout(false);
-            this.groupBox14.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
-            this.groupBox15.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).EndInit();
+            this.groupBox7.ResumeLayout(false);
             this.tabPage3.ResumeLayout(false);
-            this.groupBox9.ResumeLayout(false);
-            this.groupBox9.PerformLayout();
             this.groupBox8.ResumeLayout(false);
             this.groupBox8.PerformLayout();
             this.groupBox12.ResumeLayout(false);
             this.groupBox12.PerformLayout();
-            this.tabControl1.ResumeLayout(false);
+            this.groupBox9.ResumeLayout(false);
+            this.groupBox9.PerformLayout();
             this.ResumeLayout(false);
 
         }

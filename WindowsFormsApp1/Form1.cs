@@ -32,7 +32,7 @@ namespace WindowsFormsApp1
         private bool _isReceivingDataNow = false;
         private bool _isNewRxData = false;
         public bool _isRunningLogic = false;
-        private bool _isDevConnect = false;
+
 
         // Приватные поля класса 
         private static int _timePrdLife = 0;
@@ -45,16 +45,11 @@ namespace WindowsFormsApp1
         private Timer _timerRxData;
         private byte[] _receiveBuffer; // Общий буфер для накопления данных
         private int _bufferIndex = 0; // Текущая позиция в буфере
-
         private const int MAX_HISTORY_POINTS = 5000;
-        public List<DataPoint> _frame = new List<DataPoint>(MAX_HISTORY_POINTS);
-
-        //public  List<(DateTime timestamp, byte byte1, byte byte2)> _frame=new List<(DateTime timestamp, byte byte1, byte byte2)>();
-
         private Form2 _graphForm;
 
         public event EventHandler<DataReceivedEventArgs> NewDataReceived;
-
+        public List<DataPoint> _frame = new List<DataPoint>(MAX_HISTORY_POINTS);
 
         public Form1()
         {
@@ -631,7 +626,187 @@ namespace WindowsFormsApp1
 
 
         }
-        
+        // Обрботчики терминала
+
+        private void UpdateUIWithReceivedData(byte[] receivedBytes)
+        {
+            if (!listBox_HEX.IsDisposed)
+            {
+                if (listBox_HEX.Items.Count > 1000)
+                {
+                    listBox_HEX.Items.RemoveAt(0);
+                    listBox_ASСII.Items.RemoveAt(0);
+                }
+                foreach (byte b in receivedBytes)
+                {
+                    listBox_HEX.Items.Add(b.ToString("X2"));
+                    if (listBox_ASСII.Items.Count != listBox_HEX.Items.Count - 2)
+                    {
+                        listBox_ASСII.Items.Add(" ");
+                    }
+
+
+                }
+                listBox_HEX.Items.Add(" ");
+                listBox_HEX.TopIndex = listBox_HEX.Items.Count - 1;
+
+            }
+            if (!listBox_DEC.IsDisposed)
+            {
+                if (listBox_DEC.Items.Count > 1000)
+                {
+                    listBox_DEC.Items.RemoveAt(0);
+                }
+                foreach (byte b in receivedBytes)
+                {
+                    listBox_DEC.Items.Add(b);
+                }
+                listBox_DEC.Items.Add(" ");
+                listBox_DEC.TopIndex = listBox_DEC.Items.Count - 1;
+            }
+
+            if (!listBox_ASСII.IsDisposed)
+            {
+                string asciiString = Encoding.ASCII.GetString(receivedBytes);
+
+                if (!string.IsNullOrEmpty(asciiString))
+                {
+                    if (listBox_ASСII.Items.Count == listBox_HEX.Items.Count)
+                    {
+                        listBox_ASСII.Items.RemoveAt(listBox_ASСII.Items.Count - 1);
+                        listBox_ASСII.Items.RemoveAt(listBox_ASСII.Items.Count - 1);
+                    }
+
+                    listBox_ASСII.Items.Add(asciiString);
+                }
+                //listBox_ASСII.Items.Add(" ");
+                listBox_ASСII.TopIndex = listBox_ASСII.Items.Count - 1;
+            }
+            if (!listBox_BIN.IsDisposed)
+            {
+                if (listBox_BIN.Items.Count > 1000)
+                {
+                    listBox_BIN.Items.Remove(0);
+                }
+                foreach (byte b in receivedBytes)
+                {
+                    string bits = Convert.ToString(b, 2).PadLeft(8, '0');
+                    listBox_BIN.Items.Add(bits);
+                }
+                listBox_BIN.Items.Add(" ");
+
+                listBox_BIN.TopIndex = listBox_BIN.Items.Count - 1;
+            }
+        }
+
+        // Обработка для отправки через терминал HEX
+        public byte[] ParseHex(string input)
+        {
+            var bytes = new List<byte>();
+            try
+            {
+
+                foreach (var token in input.Replace("\r", "").Replace("\n", "").Split(new[] { ' ', ',', ';', '\t' }, StringSplitOptions.RemoveEmptyEntries))
+                    bytes.Add(Convert.ToByte(token, 16));
+
+            }
+            catch (Exception ex)
+            {
+
+                AddLogMessage(LogLevel.Warning, $"Ошибка данных: {ex.Message}");
+
+            }
+            return bytes.ToArray();
+        }
+        //  Обработка для отправки через терминал DEC
+        public byte[] ParseDec(string input)
+        {
+            var bytes = new List<byte>();
+            try
+            {
+                foreach (var token in input.Replace("\r", "").Replace("\n", "").Split(new[] { ' ', ',', ';', '\t' }, StringSplitOptions.RemoveEmptyEntries))
+                {
+                    if (!int.TryParse(token, System.Globalization.NumberStyles.Integer, System.Globalization.CultureInfo.InvariantCulture, out var v))
+                        throw new FormatException($"Некорректное число: {token}");
+                    //bytes.Add((byte)(v & 0xFF)); - отстаток от деления
+                    bytes.Add(Convert.ToByte(token, 10));
+                }
+            }
+            catch (Exception ex)
+            {
+                AddLogMessage(LogLevel.Warning, $"Ошибка данных: {ex.Message}");
+            }
+
+            return bytes.ToArray();
+
+        }
+        // Отправить через терминал
+        public byte[] SendByFormat(SerialPort port, string input)
+        {
+            if (!port.IsOpen) return null;
+
+            if (radioButton_DEC.Checked)
+            {
+                var bytesDec = ParseDec(input);
+                if (bytesDec.Length > 0 && bytesDec != null)
+                {
+                    port.Write(bytesDec, 0, bytesDec.Length);
+                }
+
+                return bytesDec;
+            }
+            else if (radioButton_HEX.Checked)
+            {
+                var bytesHex = ParseHex(input);
+                if (bytesHex.Length > 0 && bytesHex != null)
+                {
+                    port.Write(bytesHex, 0, bytesHex.Length);
+                }
+                return bytesHex;
+            }
+            else if (radioButton_ASCII.Checked)
+            {
+                var bytesAscii = Encoding.ASCII.GetBytes(input.Replace("\r", "").Replace("\n", ""));
+                port.Encoding = Encoding.ASCII;
+                if (bytesAscii.Length > 0 && bytesAscii != null)
+                {
+                    port.Write(bytesAscii, 0, bytesAscii.Length);
+                }
+
+                return bytesAscii;
+            }
+            return null;
+
+        }
+
+        public void UpateListBoxTransmit(byte[] receivedBytes)
+        {
+            if (radioButton_HEX.Checked)
+            {
+                foreach (byte b in receivedBytes)
+                {
+                    listBox_Transmit.Items.Add(b.ToString("X2"));
+                }
+            }
+            if (radioButton_DEC.Checked)
+            {
+                foreach (byte b in receivedBytes)
+                {
+                    listBox_Transmit.Items.Add(b);
+                }
+            }
+
+            if (radioButton_ASCII.Checked)
+            {
+                string asciiString = Encoding.ASCII.GetString(receivedBytes);
+                if (!string.IsNullOrEmpty(asciiString))
+                {
+                    listBox_Transmit.Items.Add(asciiString);
+                }
+            }
+
+        }
+
         // Обработчики событий 
         private void DataReceivedHandler(object sender, SerialDataReceivedEventArgs e)
         {
@@ -681,185 +856,7 @@ namespace WindowsFormsApp1
 
             _isReceivingDataNow = false;
         }
-        // Обрботчики терминала
-        private void UpdateUIWithReceivedData(byte[] receivedBytes)
-        {
-            if (!listBox_HEX.IsDisposed)
-            {
-                if(listBox_HEX.Items.Count>1000)
-                {
-                    listBox_HEX.Items.RemoveAt(0);
-                    listBox_ASСII.Items.RemoveAt(0);
-                }
-                foreach (byte b in receivedBytes)
-                {
-                    listBox_HEX.Items.Add(b.ToString("X2"));
-                    if (listBox_ASСII.Items.Count != listBox_HEX.Items.Count - 2)
-                    {
-                        listBox_ASСII.Items.Add(" ");
-                    }
-                    
-                    
-                }
-                listBox_HEX.Items.Add(" ");
-                listBox_HEX.TopIndex = listBox_HEX.Items.Count - 1;
-
-            }
-            if (!listBox_DEC.IsDisposed)
-            {
-                if (listBox_DEC.Items.Count > 1000)
-                {
-                    listBox_DEC.Items.RemoveAt(0);
-                }
-                foreach (byte b in receivedBytes)
-                {
-                    listBox_DEC.Items.Add(b);
-                }
-                listBox_DEC.Items.Add(" ");
-                listBox_DEC.TopIndex = listBox_DEC.Items.Count - 1;
-            }
-
-            if (!listBox_ASСII.IsDisposed)
-            {
-                string asciiString = Encoding.ASCII.GetString(receivedBytes);
-               
-                if (!string.IsNullOrEmpty(asciiString))
-                {
-                    if (listBox_ASСII.Items.Count == listBox_HEX.Items.Count)
-                    {
-                        listBox_ASСII.Items.RemoveAt(listBox_ASСII.Items.Count - 1);
-                        listBox_ASСII.Items.RemoveAt(listBox_ASСII.Items.Count - 1); 
-                    }
-                        
-                    listBox_ASСII.Items.Add(asciiString);
-                }
-                //listBox_ASСII.Items.Add(" ");
-                listBox_ASСII.TopIndex = listBox_ASСII.Items.Count - 1;
-            }
-            if (!listBox_BIN.IsDisposed)
-            {
-                if (listBox_BIN.Items.Count > 1000)
-                {
-                    listBox_BIN.Items.Remove(0);
-                }
-                foreach (byte b in receivedBytes)
-                {
-                    string bits = Convert.ToString(b, 2).PadLeft(8, '0'); 
-                    listBox_BIN.Items.Add(bits);
-                }
-                listBox_BIN.Items.Add(" ");
-
-                listBox_BIN.TopIndex = listBox_BIN.Items.Count - 1;
-            }
-        }
-
-       // Обработка для отправки через терминал HEX
-        public byte[] ParseHex(string input) 
-        {
-            var bytes = new List<byte>();
-            try
-            {
-               
-                foreach (var token in input.Replace("\r", "").Replace("\n", "").Split(new[] { ' ', ',', ';', '\t' }, StringSplitOptions.RemoveEmptyEntries))
-                    bytes.Add(Convert.ToByte(token, 16));
-                
-            }
-            catch (Exception ex)
-            {
-
-                AddLogMessage(LogLevel.Warning, $"Ошибка данных: {ex.Message}");
-               
-            }
-            return bytes.ToArray();
-        }
-        //  Обработка для отправки через терминал DEC
-        public byte[] ParseDec(string input)
-        {
-            var bytes = new List<byte>();
-            try
-            {
-                foreach (var token in input.Replace("\r", "").Replace("\n", "").Split(new[] { ' ', ',', ';', '\t' }, StringSplitOptions.RemoveEmptyEntries))
-                {
-                    if (!int.TryParse(token, System.Globalization.NumberStyles.Integer, System.Globalization.CultureInfo.InvariantCulture, out var v))
-                      throw new FormatException($"Некорректное число: {token}");
-                    //bytes.Add((byte)(v & 0xFF)); - отстаток от деления
-                    bytes.Add(Convert.ToByte(token, 10));
-                }
-            }
-            catch (Exception ex)
-            {
-                AddLogMessage(LogLevel.Warning, $"Ошибка данных: {ex.Message}");
-            } 
-
-            return bytes.ToArray();
-            
-        }
-        // Отправить через терминал
-        public byte[] SendByFormat(SerialPort port, string input)
-        {
-            if (!port.IsOpen) return null;
-            
-            if(radioButton_DEC.Checked)
-            {
-                var bytesDec = ParseDec(input);
-                if (bytesDec.Length > 0 && bytesDec != null)
-                {
-                    port.Write(bytesDec, 0, bytesDec.Length);
-                }
-                   
-                return bytesDec;
-            }
-            else if(radioButton_HEX.Checked)
-            {
-                var bytesHex = ParseHex(input);
-                if (bytesHex.Length > 0 && bytesHex != null)
-                {
-                    port.Write(bytesHex, 0, bytesHex.Length);
-                }
-                return bytesHex;
-            }
-            else if(radioButton_ASCII.Checked)
-            {
-                var bytesAscii = Encoding.ASCII.GetBytes(input.Replace("\r", "").Replace("\n", ""));
-                port.Encoding = Encoding.ASCII;
-                if (bytesAscii.Length > 0 && bytesAscii != null)
-                {
-                    port.Write(bytesAscii, 0, bytesAscii.Length);
-                }
-                
-                return bytesAscii;
-            }
-            return null;
-            
-        }
-
-        public void UpateListBoxTransmit(byte[] receivedBytes)
-        {
-            if (radioButton_HEX.Checked)
-            {
-                foreach (byte b in receivedBytes)
-                {
-                    listBox_Transmit.Items.Add(b.ToString("X2"));
-                }
-            }
-            if (radioButton_DEC.Checked)
-            {
-                foreach (byte b in receivedBytes)
-                {
-                    listBox_Transmit.Items.Add(b);
-                }
-            }
-
-            if (radioButton_ASCII.Checked)
-            {
-                string asciiString = Encoding.ASCII.GetString(receivedBytes);
-                if (!string.IsNullOrEmpty(asciiString))
-                {
-                    listBox_Transmit.Items.Add(asciiString);
-                }
-            }
-            
-        }
+       
 
         private void CommunicationTimer_Tick(object sender, EventArgs e)
         {
@@ -947,8 +944,7 @@ namespace WindowsFormsApp1
             TextBoxHeaderProtocolReceive.Text = "*D#";
           
         }
-
-      
+    
         // Обработчик события закрытия формы
         private void FormClosingEventHandler(object sender, FormClosingEventArgs e)
         {
@@ -978,8 +974,7 @@ namespace WindowsFormsApp1
             }
         }
 
-      
-
+ 
         private void tabControl1_Selecting(object sender, TabControlCancelEventArgs e)
         {
             if (e.TabPage == tabPage3 && _isRunningLogic)
@@ -1182,11 +1177,6 @@ namespace WindowsFormsApp1
         private void radioButton9_CheckedChanged_1(object sender, EventArgs e)
         {
             _serialPort.Parity = Parity.Space;
-        }
-
-        private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
         }
 
         private void button5_Click_1(object sender, EventArgs e)
