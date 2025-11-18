@@ -88,15 +88,20 @@ namespace WindowsFormsApp1
             listView_DataReceive.View = View.Details;
             listView_DataReceive.GridLines = true;
             listView_DataReceive.FullRowSelect = true;
-            listView_DataReceive.Columns.Add("#", 40, HorizontalAlignment.Right);
-            listView_DataReceive.Columns.Add("Байт 1", 80, HorizontalAlignment.Right);
-            listView_DataReceive.Columns.Add("Байт 2", 80, HorizontalAlignment.Right);
+            listView_DataReceive.Columns.Clear();
+          
+            
+                listView_DataReceive.Columns.Add("#", 40, HorizontalAlignment.Right);
+                listView_DataReceive.Columns.Add("Byte 1", 80, HorizontalAlignment.Right);
+                listView_DataReceive.Columns.Add("Byte 2", 80, HorizontalAlignment.Right);
+            
 
             // Включаем виртуальный режим
             listView_DataReceive.VirtualMode = true;
             listView_DataReceive.VirtualListSize = 0; // Будет обновляться динамически
 
             listView_DataReceive.RetrieveVirtualItem += new RetrieveVirtualItemEventHandler(ListViewDataReceive_RetrieveVirtualItem);
+            listView_DataReceive.Refresh();
 
         }
         private void ListViewDataReceive_RetrieveVirtualItem(object sender, RetrieveVirtualItemEventArgs e )
@@ -105,8 +110,18 @@ namespace WindowsFormsApp1
             {
                 var frame = _frame[e.ItemIndex];
                 var item = new ListViewItem((e.ItemIndex + 1).ToString());
-                item.SubItems.Add(frame.Byte1.ToString());
-                item.SubItems.Add(frame.Byte2.ToString());
+                if(this.checkBox_HbyteLByte.Checked==true)
+                {
+                    var number = ConvertToInt16(frame.Byte2, frame.Byte1);
+                    item.SubItems.Add(number.ToString());
+                    item.SubItems.Add("");
+                }
+                else
+                {
+                    item.SubItems.Add(frame.Byte1.ToString());
+                    item.SubItems.Add(frame.Byte2.ToString());
+                }
+                
                 e.Item = item;
             }
             else
@@ -257,6 +272,10 @@ namespace WindowsFormsApp1
                 HEADER = TextBoxHeaderProtocolReceive.Text;
                 _timerRxData.Tick += new EventHandler(CommunicationTimer_Tick);
                 SyncGraphState(true);
+                if (_graphForm != null)
+                {
+                    _graphForm.button2.Enabled = false;
+                }
 
             }
         }
@@ -294,9 +313,13 @@ namespace WindowsFormsApp1
                     if (_frame.Count > 0)
                     {
                         StateControls("StateButtonSaveData_Enb");
-                       
                     }
                     StateControls("StateButtonReset_Enb");
+                    if(_graphForm!=null)
+                    {
+                        _graphForm.button2.Enabled = true;
+                    }
+                    
                 }
             }
         }
@@ -304,7 +327,7 @@ namespace WindowsFormsApp1
         private void StopReadDate()
         {
             _isRunningLogic = false;
-            //_graph.AddGap();
+            _graphForm?.AddGap();
             _timerRxData.Stop();
             //_graph.StartAndStopGraph(_isRunningLogic);
             // Добавляем разрыв в график
@@ -314,11 +337,14 @@ namespace WindowsFormsApp1
             StateControls("StateTextBoxHeaderProtocolReceive_Enb");
             if (_frame.Count > 0)
             {
-                StateControls("StateButtonSaveData_Enb");
-               
+                StateControls("StateButtonSaveData_Enb");  
             }
             StateControls("StateButtonReset_Enb");
             SyncGraphState(true);
+            if (_graphForm != null)
+            {
+                _graphForm.button2.Enabled = true;
+            }
         }
         private void SyncGraphState(bool isRunning)
         {
@@ -374,7 +400,7 @@ namespace WindowsFormsApp1
                     // Добавляем данные в таблицу
                     ReSizeListViewDataReceive();
                     AddDataToGrid(value1, value2);
-                   
+
                     if (_frame.Count >= MAX_HISTORY_POINTS)
                     {
                         _frame.RemoveAt(0); // Удаляем самые старые данные
@@ -457,13 +483,14 @@ namespace WindowsFormsApp1
             }
         }
 
-        
-        private void AddDataToGrid(byte byte1, byte byte2)
+        private UInt16 ConvertToInt16(byte highByte, byte lowByte)
         {
-            
-             NewDataReceived?.Invoke(this,new DataReceivedEventArgs(DateTime.Now,byte1,byte2));
+            return (UInt16)(highByte << 8 | lowByte);
+        }
 
-            
+        private void AddDataToGrid(byte byte1, byte byte2)
+        {           
+             NewDataReceived?.Invoke(this,new DataReceivedEventArgs(DateTime.Now,byte1,byte2));
         }
 
         public void AddLogMessage(LogLevel level, string log)
@@ -511,12 +538,20 @@ namespace WindowsFormsApp1
                 {
                     using (StreamWriter sw = new StreamWriter(fileDialog.FileName, false, Encoding.UTF8))
                     {
-                        sw.WriteLine("#,Byte1,Byte2,Time");
+                        if (!checkBox_HbyteLByte.Checked)
+                            sw.WriteLine("#,Byte1,Byte2,Time");
+                        else
+                            sw.WriteLine("#,Number,Time");
 
                         for (int i = 0; i < _frame.Count; i++)
                         {
                             int numberpackage = i + 1;
-                            sw.WriteLine($"{numberpackage},{_frame[i].Byte1},{_frame[i].Byte2},{_frame[i].Timestamp:HH:mm:ss.fff}");
+                            if (checkBox_HbyteLByte.Checked)
+                            {
+                                sw.WriteLine($"{numberpackage},{ConvertToInt16(_frame[i].Byte2, _frame[i].Byte1)},{_frame[i].Timestamp:HH:mm:ss.fff}");
+                            }
+                            else
+                              sw.WriteLine($"{numberpackage},{_frame[i].Byte1},{_frame[i].Byte2},{_frame[i].Timestamp:HH:mm:ss.fff}");
                         }
                         AddLogMessage(LogLevel.Info, $"Данные сохранены в CSV - {fileDialog.FileName}");
                     }
@@ -834,7 +869,7 @@ namespace WindowsFormsApp1
             {
                 this.BeginInvoke(new Action(() =>
                 {
-                    if (tabControl1.SelectedTab == tabPage1)
+                    if (Pages.SelectedTab == tabPage1)
                     {
                         // переносим данные в общий буфер в UI-потоке
                         if (_bufferIndex + chunk.Length > _receiveBuffer.Length)
@@ -847,7 +882,7 @@ namespace WindowsFormsApp1
                         _bufferIndex += chunk.Length;
                         _isNewRxData = true;
                     }
-                    else if (tabControl1.SelectedTab == tabPage3)
+                    else if (Pages.SelectedTab == tabPage3)
                     {
                         UpdateUIWithReceivedData(chunk);
                     }
@@ -983,19 +1018,6 @@ namespace WindowsFormsApp1
             }
         }
 
-        private void button4_Click(object sender, EventArgs e)
-        {
-            if (!_serialPort.IsOpen || _isNewRxData) return;
-
-            byte[] listBoxData = SendByFormat(_serialPort, textBox_TransmitData.Text);
-
-            if (listBoxData.Length > 0&& listBoxData!=null)
-            {
-                UpateListBoxTransmit(listBoxData);
-            }
-        }
-
-      
         private void button_ClearGraph_Click(object sender, EventArgs e)
         {
             if (_isRunningLogic)
@@ -1030,7 +1052,7 @@ namespace WindowsFormsApp1
        
         private void ClearTerminalReceive()
         {
-            if (tabControl1.SelectedTab == tabPage3)
+            if (Pages.SelectedTab == tabPage3)
             {
                 listBox_ASСII.Items.Clear();
                 listBox_BIN.Items.Clear();
@@ -1039,70 +1061,6 @@ namespace WindowsFormsApp1
             }
         }
 
-      
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-            // Проверяем, не закрыта ли форма
-            if (_graphForm == null || _graphForm.IsDisposed)
-            {
-                _graphForm = new Form2(this);
-                _graphForm.FormClosed += (s, args) => _graphForm = null;
-            }
-            else
-            {
-                _graphForm.ReloadHistoricalData();
-            }
-            _graphForm.Show();
-            _graphForm.WindowState = FormWindowState.Normal; // Если форма была свернута
-            _graphForm.BringToFront(); // Помещаем окно на передний план
-        }
-
-        private void button_start_Click_1(object sender, EventArgs e)
-        {
-            StartReadDate();
-        }
-
-        private void button_Clear_Click(object sender, EventArgs e)
-        {
-            if (_isRunningLogic)
-            {
-                return;
-            }
-            DialogResult result = MessageBox.Show("Все данные будут утеряны. Сбросить?", "Сброс", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
-
-            if (result == DialogResult.No)
-            {
-                return;
-            }
-            _isReceivingDataNow = false;
-            _isNewRxData = false;
-            _timePrdLife = 0;
-            _countTimeNoRxData = 0;
-            _cntLife = 0;
-            _cntErrRx = 0;
-            countPackages = 0;
-            _receiveBuffer = new byte[1024];
-            _bufferIndex = 0;
-
-            _timePrdLife = 0;
-
-            _frame.Clear();
-            //_graph.Clear();
-            //_graph.Dispose();
-            StateControls("StateButtonSaveData_Dis");
-            StateControls("StateButtonReset_Dis");
-        }
-
-        private void button_stop_Click_1(object sender, EventArgs e)
-        {
-            StopReadDate();
-        }
-
-        private void button_save_data_Click_1(object sender, EventArgs e)
-        {
-            ExportToCsv();
-        }
 
         private void button_OpenComPort_Click(object sender, EventArgs e)
         {
@@ -1179,14 +1137,116 @@ namespace WindowsFormsApp1
             _serialPort.Parity = Parity.Space;
         }
 
-        private void button5_Click_1(object sender, EventArgs e)
+  
+        private void button1_Click(object sender, EventArgs e)
         {
             ClearTerminalReceive();
         }
 
-        private void button6_Click(object sender, EventArgs e)
+        private void button_ClearTransmit_Click(object sender, EventArgs e)
         {
             listBox_Transmit.Items.Clear();
+        }
+
+        private void button_start_Click(object sender, EventArgs e)
+        {
+            StartReadDate();
+        }
+
+        private void button_stop_Click(object sender, EventArgs e)
+        {
+            StopReadDate();
+        }
+
+        private void button_Clear_Click_1(object sender, EventArgs e)
+        {
+            if (_isRunningLogic)
+            {
+                return;
+            }
+            DialogResult result = MessageBox.Show("Все данные будут утеряны. Сбросить?", "Сброс", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
+
+            if (result == DialogResult.No)
+            {
+                return;
+            }
+            _isReceivingDataNow = false;
+            _isNewRxData = false;
+            _timePrdLife = 0;
+            _countTimeNoRxData = 0;
+            _cntLife = 0;
+            _cntErrRx = 0;
+            countPackages = 0;
+            _receiveBuffer = new byte[1024];
+            _bufferIndex = 0;
+
+            _timePrdLife = 0;
+
+            _frame.Clear();
+            if (_graphForm != null)
+            {
+                _graphForm.ClearGraph();
+            }
+            //_graph.Clear();
+            //_graph.Dispose();
+            SetupListViewReceiveDataProtocol();
+            StateControls("StateButtonSaveData_Dis");
+            StateControls("StateButtonReset_Dis");
+        }
+
+        private void button3_Click_1(object sender, EventArgs e)
+        {
+            // Проверяем, не закрыта ли форма
+            if (_graphForm == null || _graphForm.IsDisposed)
+            {
+                _graphForm = new Form2(this);
+                _graphForm.FormClosed += (s, args) => _graphForm = null;
+            }
+            else
+            {
+                _graphForm.ReloadHistoricalData();
+            }
+            _graphForm.Show();
+            _graphForm.WindowState = FormWindowState.Normal; // Если форма была свернута
+            _graphForm.BringToFront(); // Помещаем окно на передний план
+        }
+
+        private void button_save_data_Click(object sender, EventArgs e)
+        {
+            ExportToCsv();
+        }
+
+        private void checkBox_HbyteLByte_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox_HbyteLByte.Checked)
+            {
+                listView_DataReceive.Columns[1].Text = "Number";
+                listView_DataReceive.Columns[1].Width = 160;
+                listView_DataReceive.Columns[2].Text = "";
+                listView_DataReceive.Columns[2].Width = 0;
+                _graphForm?.ReloadHistoricalData();
+            }
+            else
+            {
+                listView_DataReceive.Columns[1].Text = "Byte 1";
+                listView_DataReceive.Columns[1].Width = 80;
+                listView_DataReceive.Columns[2].Text = "Byte 2";
+                listView_DataReceive.Columns[2].Width = 80;
+                _graphForm?.ReloadHistoricalData();
+            }
+            listView_DataReceive.Refresh();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            if (!_serialPort.IsOpen || _isNewRxData) return;
+
+            byte[] listBoxData = SendByFormat(_serialPort, textBox_TransmitData.Text);
+
+            if (listBoxData.Length > 0 && listBoxData != null)
+            {
+                UpateListBoxTransmit(listBoxData);
+            }
         }
     }
 }

@@ -53,11 +53,11 @@ namespace WindowsFormsApp1
             // Загружаем все исторические данные с их временными метками
             foreach (var frame in _mainForm1._frame)
             {
-                _graph.AddData(frame.Timestamp,frame.Byte1, frame.Byte2);
+                _graph.AddData(frame.Timestamp,frame.Byte1, frame.Byte2, _mainForm1.checkBox_HbyteLByte.Checked);
             }
 
             // Принудительно обновляем график
-            _graph.UpdateGraph();
+            //_graph.UpdateGraph();
 
             _graph.StartAndStopGraph(_mainForm1._isRunningLogic);
 
@@ -65,15 +65,7 @@ namespace WindowsFormsApp1
 
         private void OnNewDataReceived(object sender, DataReceivedEventArgs e)
         {
-            // Обновляем график в UI потоке
-            if (this.InvokeRequired)
-            {
-                this.Invoke((MethodInvoker)(() => _graph.AddData(e.Timestamp,e.Byte1, e.Byte2)));
-            }
-            else
-            {
-                _graph.AddData(e.Timestamp, e.Byte1, e.Byte2);
-            }
+            _graph.AddData(e.Timestamp, e.Byte1, e.Byte2, _mainForm1.checkBox_HbyteLByte.Checked);
         }
 
         private void SaveGraphAsImage()
@@ -110,7 +102,7 @@ namespace WindowsFormsApp1
                     try
                     {
                         // Сохраняем график как изображение
-                        //zedGraphControl.MasterPane.GetImage().Save(filePath, format);
+                        zedGraphControl.MasterPane.GetImage().Save(filePath, format);
                         _mainForm1.AddLogMessage(LogLevel.Info, $"График сохранен как изображение: {filePath}");
                     }
                     catch (Exception ex)
@@ -138,7 +130,10 @@ namespace WindowsFormsApp1
 
             base.OnFormClosed(e);
         }
-     
+        public void AddGap()
+        {
+            _graph.AddGap();
+        }
 
         public void ReloadHistoricalData()
         {
@@ -150,19 +145,58 @@ namespace WindowsFormsApp1
         }
 
         
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            SaveGraphAsImage();
-        }
-
-        private void button2_Click(object sender, EventArgs e)
+        public void ClearGraph()
         {
             if (_graph.HasData == false)
             {
                 return;
             }
             _graph.Clear();
+        }
+        
+
+        private void checkBox_showPoints_CheckedChanged_1(object sender, EventArgs e)
+        {
+            _graph.ShowPoints(checkBox_showPoints.Checked);
+            if (checkBox_showPoints.Checked)
+            {
+                numericUpDown1.Enabled = true;
+            }
+            else
+            {
+                numericUpDown1.Value = 3;
+                numericUpDown1.Enabled = false;
+            }
+        }
+
+        private void numericUpDown1_ValueChanged_1(object sender, EventArgs e)
+        {
+            _graph.SizePoints((float)numericUpDown1.Value);
+        }
+
+        private void checkBox_ShowCurve1_CheckedChanged_1(object sender, EventArgs e)
+        {
+            _graph.IsVisibleCurve1 = checkBox_ShowCurve1.Checked;
+        }
+
+        private void checkBox_ShowCurve2_CheckedChanged_1(object sender, EventArgs e)
+        {
+            _graph.IsVisibleCurve2 = checkBox_ShowCurve2.Checked;
+        }
+
+        private void numericUpDown2_ValueChanged_1(object sender, EventArgs e)
+        {
+            _graph.SizeCurve((float)numericUpDown2.Value);
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            SaveGraphAsImage();
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            ClearGraph();
         }
     }
 }
